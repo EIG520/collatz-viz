@@ -7,7 +7,7 @@ pub fn run_program() -> std::io::Result<()> {
     
     let mut tree = CollatzTree::default();
     let mut from = 0;
-    let mut newrows = 0isize;
+    let mut newrows = 1isize;
 
     let stdin = stdin();
     let mut screen = stdout().into_raw_mode()?.into_alternate_screen()?;
@@ -74,8 +74,9 @@ fn write_tree<W: std::io::Write + AsFd>(screen: &mut AlternateScreen<RawTerminal
     }
 
     if pos + offset <= termion::terminal_size().unwrap().1 as isize {
-        let _ = write!(screen, "{}0",
-            termion::cursor::Goto(1, pos as u16 + offset as u16)
+        let _ = write!(screen, "{}{} 0",
+            termion::cursor::Goto(1, pos as u16 + offset as u16),
+            " ".on_bright_green(),
         );
     }
     
