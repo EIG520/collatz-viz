@@ -1,5 +1,5 @@
-This project is a command line vizualizer for the collatz conjecture.
-The vizualization will look as follows:
+This project is a command line visualizer for the collatz conjecture.
+The visualization will look as follows:
 ```
 │   │   ├───52
 │   │   ├───26
